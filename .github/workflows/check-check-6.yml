@@ -16,12 +16,12 @@ jobs:
 
     steps:
       - name: clone repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
       - name: clone ref
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           repository: ${{ env.REFERENCE_REPO }}
           path: reference
