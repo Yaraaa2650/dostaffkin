@@ -10,12 +10,12 @@ import { DeliveryApi } from '../../services/delivery-api';
   styleUrl: './track.css',
 })
 export class Track {
-trackNumber = '';
-trackResult: any = signal(null);
+  trackNumber = '';
+  trackResult: any = signal(null);
 
-constructor(private deliveryApi: DeliveryApi) {}
+  constructor(private deliveryApi: DeliveryApi) { }
 
-trackShipment(): void {
+  trackShipment(): void {
     const rawValue = this.trackNumber.trim();
 
     if (!rawValue) {
@@ -31,12 +31,12 @@ trackShipment(): void {
     }
 
     this.deliveryApi.getDeliveryInfo(numericValue).subscribe((response) => {
-  if ('error' in response) {
-    alert(response.error);
-    return;
-  }
+      if ('error' in response) {
+        alert(response.error);
+        return;
+      }
 
-  this.trackResult.set(response);
-});
+      this.trackResult.set(response);
+    });
   }
 }
